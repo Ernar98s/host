@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import HeaderWidget from '../widgets/header/HeaderWidget.vue'
 import SidebarWidget from '../widgets/sidebar/SidebarWidget.vue'
 </script>
 
@@ -9,7 +8,6 @@ import SidebarWidget from '../widgets/sidebar/SidebarWidget.vue'
       <SidebarWidget />
 
       <div class="flex min-w-0 flex-1 flex-col">
-        <HeaderWidget />
         <main class="flex-1 p-6">
           <slot />
         </main>

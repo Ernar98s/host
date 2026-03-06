@@ -32,8 +32,8 @@ onMounted(() => {
     class="flex h-screen w-64 flex-col border-r border-black/10 bg-white p-4 text-black dark:border-white/20 dark:bg-black dark:text-white"
   >
     <div class="mb-6 flex items-center gap-2">
-      <Icon icon="material-symbols:widgets-outline-rounded" class="text-xl" />
-      <span class="text-base font-semibold">Host Sidebar</span>
+      <Icon icon="raphael:lab" class="text-xl" />
+      <span class="text-base font-semibold">Ernar98s Frontend Lab</span>
     </div>
 
     <nav class="flex flex-1 flex-col gap-2 text-sm">
@@ -41,8 +41,12 @@ onMounted(() => {
         v-for="link in links"
         :key="link.to"
         :to="link.to"
-        class="rounded px-2 py-1 hover:bg-black/5 dark:hover:bg-white/10"
-        active-class="bg-black text-white dark:bg-white dark:text-black"
+        class="rounded px-2 py-1"
+        :class="
+          $route.path === link.to
+            ? 'bg-black text-white dark:bg-white dark:text-black'
+            : 'hover:bg-black/5 dark:hover:bg-white/10'
+        "
       >
         {{ link.label }}
       </RouterLink>
