@@ -1,10 +1,5 @@
 <template>
-	<section>
-		<h1>Event Loop</h1>
-		<p>Page stub.</p>
-
-		<div ref="container"></div>
-	</section>
+	<div ref="container"></div>
 </template>
 
 <script setup lang="ts">
