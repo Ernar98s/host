@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SidebarWidget from '../widgets/sidebar/SidebarWidget.vue'
+import HostMicrofrontendPopup from '../shared/ui/HostMicrofrontendPopup.vue'
 </script>
 
 <template>
@@ -13,5 +14,6 @@ import SidebarWidget from '../widgets/sidebar/SidebarWidget.vue'
         </main>
       </div>
     </div>
+    <HostMicrofrontendPopup />
   </div>
 </template>
