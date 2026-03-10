@@ -3,6 +3,10 @@ import { Icon } from '@iconify/vue'
 import { onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 
+const emit = defineEmits<{
+  navigate: []
+}>()
+
 const overviewLink = { to: '/', label: 'Overview' }
 
 const labLinks = [
@@ -23,6 +27,10 @@ function toggleTheme() {
   applyTheme(!isDark.value)
 }
 
+function handleNavigate() {
+  emit('navigate')
+}
+
 onMounted(() => {
   applyTheme(document.documentElement.classList.contains('dark'))
 })
@@ -32,9 +40,19 @@ onMounted(() => {
   <aside
     class="flex h-full w-64 shrink-0 flex-col overflow-y-auto border-r border-black/10 bg-white p-4 text-black dark:border-white/20 dark:bg-black dark:text-white"
   >
-    <div class="mb-6 flex items-center gap-2">
-      <Icon icon="raphael:lab" class="text-xl" />
-      <span class="text-base font-semibold">Ernar98s Frontend Lab</span>
+    <div class="mb-6 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <Icon icon="raphael:lab" class="text-xl" />
+        <span class="text-base font-semibold">Ernar98s Frontend Lab</span>
+      </div>
+
+      <button
+        type="button"
+        class="inline-flex h-8 w-8 items-center justify-center rounded border border-black/20 text-sm md:hidden dark:border-white/30"
+        @click="handleNavigate"
+      >
+        <Icon icon="mdi:close" />
+      </button>
     </div>
 
     <nav class="flex flex-1 flex-col text-sm">
@@ -46,6 +64,7 @@ onMounted(() => {
             ? 'bg-black text-white dark:bg-white dark:text-black'
             : 'hover:bg-black/5 dark:hover:bg-white/10'
         "
+        @click="handleNavigate"
       >
         {{ overviewLink.label }}
       </RouterLink>
@@ -62,6 +81,7 @@ onMounted(() => {
             ? 'bg-black text-white dark:bg-white dark:text-black'
             : 'hover:bg-black/5 dark:hover:bg-white/10'
         "
+        @click="handleNavigate"
       >
         {{ link.label }}
       </RouterLink>
